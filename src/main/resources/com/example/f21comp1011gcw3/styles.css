@@ -1,0 +1,10 @@
+.root{
+    -fx-background-color: #607D8B;
+    -fx-font-family: Gabriola;
+    -fx-font-size: 25px;
+}
+
+#header{
+    -fx-font-size: 60px;
+    -fx-text-fill: #FF9800;
+}
