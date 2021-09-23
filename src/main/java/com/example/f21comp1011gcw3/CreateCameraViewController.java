@@ -64,6 +64,22 @@ public class CreateCameraViewController implements Initializable {
             priceLabel.setText(String.format("$%.2f", newValue));
         });
 
+        //configure the spinner to work with Integers in the range of 5-75
+        //the arguments are min, max, default and step or increment
+        SpinnerValueFactory<Integer> spinnerValueFactory =
+                        new SpinnerValueFactory.IntegerSpinnerValueFactory(5, 75, 18, 5);
+        mpSpinner.setValueFactory(spinnerValueFactory);
+        mpSpinner.setEditable(true);
+        TextField spinnerTextField = mpSpinner.getEditor();
+        spinnerTextField.textProperty().addListener(((observableValue, oldValue, newValue) -> {
+            try{
+                Integer.parseInt(newValue);
+            } catch(Exception e)
+            {
+                spinnerTextField.setText(oldValue);
+            }
+        } ));
+
 
     }
 
