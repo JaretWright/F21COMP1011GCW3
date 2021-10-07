@@ -28,7 +28,7 @@ public class Camera {
     }
 
     public void setMake(String make) {
-        List<String> validManufacturers = Arrays.asList("Canon","Nikon","Sony","Mitsubishi");
+        List<String> validManufacturers = Arrays.asList("Canon","Nikon","Sony","Mitsubishi","FujiFilm");
         if (validManufacturers.contains(make))
             this.make = make;
         else
@@ -65,7 +65,10 @@ public class Camera {
     }
 
     public void setPrice(double price) {
-        this.price = price;
+        if (price >= 0)
+            this.price = price;
+        else
+            throw new IllegalArgumentException("Price must be greater than 0");
     }
 
     public boolean isDigital() {
