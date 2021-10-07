@@ -42,16 +42,16 @@
                         <ComboBox fx:id="makeComboBox" prefHeight="47.0" prefWidth="416.0" GridPane.columnIndex="1" />
                         <TextField fx:id="modelTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" />
                         <Spinner fx:id="mpSpinner" prefHeight="47.0" prefWidth="404.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <HBox alignment="CENTER_LEFT" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                           <children>
-                              <CheckBox fx:id="digitalCheckBox" mnemonicParsing="false" text="Digital" />
-                              <CheckBox fx:id="mirrorlessCheckBox" mnemonicParsing="false" text="Mirrorless" />
-                           </children>
-                        </HBox>
                         <HBox GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <children>
                               <Slider fx:id="priceSlider" prefHeight="30.0" prefWidth="291.0" />
                               <Label fx:id="priceLabel" prefHeight="31.0" prefWidth="99.0" text="Label" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <children>
+                              <CheckBox fx:id="digitalCheckBox" mnemonicParsing="false" text="Digital" />
+                              <CheckBox fx:id="mirrorlessCheckBox" mnemonicParsing="false" text="Mirrorless" />
                            </children>
                         </HBox>
                      </children>
