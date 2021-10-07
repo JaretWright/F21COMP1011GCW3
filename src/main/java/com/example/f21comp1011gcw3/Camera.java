@@ -7,21 +7,46 @@ import java.util.List;
 public class Camera {
     private String make;
     private String model;
-    private ArrayList<String> lenses;
-    private float megaPixels;
+//    private ArrayList<String> lenses;
+    private double megaPixels;
     private double price;
     private boolean digital;
     private boolean mirrorless;
+    private int cameraId;
+    private int unitsSold;
 
-    public Camera(String make, String model, ArrayList<String> lenses, float megaPixels, double price, boolean digital, boolean mirrorless) {
+    public Camera(String make, String model, double megaPixels, double price, boolean digital, boolean mirrorless) {
         setMake(make);
         setModel(model);
-        setLenses(lenses);
         setMegaPixels(megaPixels);
         setPrice(price);
         setDigital(digital);
         setMirrorless(mirrorless);
+        setUnitsSold(0);
     }
+
+    public int getUnitsSold() {
+        return unitsSold;
+    }
+
+    public void setUnitsSold(int unitsSold) {
+        if (unitsSold>=0)
+            this.unitsSold = unitsSold;
+        else
+            throw new IllegalArgumentException("units sold must be greater than or equal to 0");
+    }
+
+    public int getCameraId() {
+        return cameraId;
+    }
+
+    public void setCameraId(int cameraId) {
+        if (cameraId>0)
+            this.cameraId = cameraId;
+        else
+            throw new IllegalArgumentException("camera ID must be greater than 0");
+    }
+
 
     public String getMake() {
         return make;
@@ -44,19 +69,19 @@ public class Camera {
         this.model = model;
     }
 
-    public ArrayList<String> getLenses() {
-        return lenses;
-    }
+//    public ArrayList<String> getLenses() {
+//        return lenses;
+//    }
+//
+//    public void setLenses(ArrayList<String> lenses) {
+//        this.lenses = lenses;
+//    }
 
-    public void setLenses(ArrayList<String> lenses) {
-        this.lenses = lenses;
-    }
-
-    public float getMegaPixels() {
+    public double getMegaPixels() {
         return megaPixels;
     }
 
-    public void setMegaPixels(float megaPixels) {
+    public void setMegaPixels(double megaPixels) {
         this.megaPixels = megaPixels;
     }
 

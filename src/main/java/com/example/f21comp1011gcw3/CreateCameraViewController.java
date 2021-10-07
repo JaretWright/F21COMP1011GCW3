@@ -98,8 +98,8 @@ public class CreateCameraViewController implements Initializable {
             boolean digital = this.digitalCheckBox.isSelected();
             boolean mirrorless = this.mirrorlessCheckBox.isSelected();
 
-            com.example.f21comp1011gcw3.Camera camera = new com.example.f21comp1011gcw3.Camera(make, model,lenses,mp, price, digital, mirrorless);
-            msgLabel.setText("Created camera: " +camera);
+//            com.example.f21comp1011gcw3.Camera camera = new com.example.f21comp1011gcw3.Camera(make, model,lenses,mp, price, digital, mirrorless);
+//            msgLabel.setText("Created camera: " +camera);
         }catch (Exception e)
         {
             this.msgLabel.setText(e.getMessage());
