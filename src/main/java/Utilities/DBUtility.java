@@ -4,10 +4,7 @@ import com.example.f21comp1011gcw3.Camera;
 import javafx.scene.chart.XYChart;
 
 import javax.xml.transform.Result;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class DBUtility {
@@ -86,5 +83,40 @@ public class DBUtility {
             e.printStackTrace();
         }
         return cameras;
+    }
+
+    /**
+     * This method will write a Camera object into the DB and return the cameraID to the calling
+     * function
+     */
+    public static int insertCameraDB(Camera camera)
+    {
+        int cameraID = -1;
+        ResultSet rs = null;
+
+        String sql = "INSERT INTO cameras (make, model, megapixels, price, digital, mirrorless) VALUES " +
+                      "(?,?,?,?,?,?);";
+        try(
+                Connection conn = DriverManager.getConnection(connectURL, user, pw);
+                PreparedStatement ps = conn.prepareStatement(sql, new String[] {"cameraId"});
+                )
+        {
+            ps.setString(1, camera.getMake());
+            ps.setString(2, camera.getModel());
+            ps.setDouble(3, camera.getMegaPixels());
+            ps.setDouble(4, camera.getPrice());
+            ps.setBoolean(5, camera.isDigital());
+            ps.setBoolean(6, camera.isMirrorless());
+
+            //execute the update
+            ps.executeUpdate();
+
+            rs = ps.getGeneratedKeys();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return cameraID;
     }
 }
