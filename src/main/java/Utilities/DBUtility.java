@@ -52,7 +52,7 @@ public class DBUtility {
         ArrayList<Camera> cameras = new ArrayList<>();
 
         String sql = "SELECT cameras.cameraId, make, model, megapixels, price, digital, mirrorless, COUNT(salesId) AS 'Units Sold' \n" +
-                     "FROM cameras INNER JOIN cameraSales ON cameras.cameraId = cameraSales.cameraId\n" +
+                     "FROM cameras LEFT JOIN cameraSales ON cameras.cameraId = cameraSales.cameraId\n" +
                      "GROUP BY cameras.cameraId;";
 
         try(

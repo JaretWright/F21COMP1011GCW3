@@ -1,12 +1,15 @@
 package com.example.f21comp1011gcw3;
 
 import Utilities.DBUtility;
+import Utilities.SceneChanger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -47,5 +50,10 @@ public class CameraTableViewController implements Initializable {
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         tableView.getItems().addAll(DBUtility.getCameraDetails());
+    }
+
+    @FXML
+    private void createNewCamera(ActionEvent event) throws IOException {
+        SceneChanger.changeScenes(event, "create_camera_view.fxml","Create Camera");
     }
 }

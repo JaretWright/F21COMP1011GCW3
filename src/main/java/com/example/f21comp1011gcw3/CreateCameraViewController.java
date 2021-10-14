@@ -1,12 +1,15 @@
 package com.example.f21comp1011gcw3;
 
 import Utilities.DBUtility;
+import Utilities.SceneChanger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -113,5 +116,10 @@ public class CreateCameraViewController implements Initializable {
         public void changed(ObservableValue observableValue, Object oldValue, Object newValue) {
             priceLabel.setText(String.format("$%.2f", newValue));
         }
+    }
+
+    @FXML
+    private void viewAllCameras(ActionEvent event) throws IOException {
+        SceneChanger.changeScenes(event, "camera_table_view.fxml", "All Camera's");
     }
 }
