@@ -92,14 +92,14 @@ public class CreateCameraViewController implements Initializable {
             String make = this.makeComboBox.getSelectionModel().getSelectedItem();
             String model = this.modelTextField.getText();
             ArrayList<String> lenses = new ArrayList<>();
-            lenses.addAll(Arrays.asList("70-200 F2.8", "15-50 F1.8", "100-400 F4.5"));
             int mp = mpSpinner.getValue();
             double price = priceSlider.getValue();
             boolean digital = this.digitalCheckBox.isSelected();
             boolean mirrorless = this.mirrorlessCheckBox.isSelected();
 
-//            com.example.f21comp1011gcw3.Camera camera = new com.example.f21comp1011gcw3.Camera(make, model,lenses,mp, price, digital, mirrorless);
-//            msgLabel.setText("Created camera: " +camera);
+            Camera camera = new com.example.f21comp1011gcw3.Camera(make, model,mp, price, digital, mirrorless);
+
+            msgLabel.setText("Created camera: " +camera);
         }catch (Exception e)
         {
             this.msgLabel.setText(e.getMessage());

@@ -31,20 +31,21 @@ public class CameraTableViewController implements Initializable {
     private TableColumn<Camera, Double> priceColumn;
 
     @FXML
+    private TableColumn<Camera, Boolean> mirrorlessColumn;
+
+    @FXML
     private TableColumn<Camera, Integer> unitsSoldColumn;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //configure the table columns to get the correct information from the model class (Camera)
         idColumn.setCellValueFactory(new PropertyValueFactory<>("cameraId"));
         makeColumn.setCellValueFactory(new PropertyValueFactory<>("make"));
         modelColumn.setCellValueFactory(new PropertyValueFactory<>("model"));
+        unitsSoldColumn.setCellValueFactory(new PropertyValueFactory<>("unitsSold"));
+        mirrorlessColumn.setCellValueFactory(new PropertyValueFactory<>("mirrorless"));
         mpColumn.setCellValueFactory(new PropertyValueFactory<>("megaPixels"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
-        unitsSoldColumn.setCellValueFactory(new PropertyValueFactory<>("unitsSold"));
 
         tableView.getItems().addAll(DBUtility.getCameraDetails());
-        System.out.println(tableView.getItems());
     }
 }
-

@@ -5037,3 +5037,19 @@ INSERT INTO cameraSales (cameraId, dateSold) VALUES (1, '2021-07-24');
 INSERT INTO cameraSales (cameraId, dateSold) VALUES (5, '2019-11-09');
 INSERT INTO cameraSales (cameraId, dateSold) VALUES (1, '2018-12-17');
 INSERT INTO cameraSales (cameraId, dateSold) VALUES (1, '2021-09-05');
+
+SELECT cameras.cameraId, make, model, megapixels, price, digital, mirrorless, COUNT(salesId) AS 'Units Sold' 
+FROM cameras INNER JOIN cameraSales ON cameras.cameraId = cameraSales.cameraId
+GROUP BY cameras.cameraId;
+
+SELECT CONCAT(make,'-',model) AS 'camera', COUNT(salesId) AS 'Units Sold'
+FROM cameras INNER JOIN cameraSales ON cameras.cameraId = cameraSales.cameraId
+GROUP BY cameras.cameraId;
+
+SELECT * FROM cameraSales;
+
+SELECT CONCAT(make,'-',model) AS 'camera', COUNT(salesId) AS 'Units Sold'
+                     FROM cameras INNER JOIN cameraSales ON cameras.cameraId = cameraSales.cameraId
+                     GROUP BY cameras.cameraId;
+                     
+                     
