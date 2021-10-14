@@ -1,5 +1,6 @@
 package com.example.f21comp1011gcw3;
 
+import Utilities.DBUtility;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -98,7 +99,7 @@ public class CreateCameraViewController implements Initializable {
             boolean mirrorless = this.mirrorlessCheckBox.isSelected();
 
             Camera camera = new com.example.f21comp1011gcw3.Camera(make, model,mp, price, digital, mirrorless);
-
+            camera.setCameraId(DBUtility.insertCameraDB(camera));
             msgLabel.setText("Created camera: " +camera);
         }catch (Exception e)
         {

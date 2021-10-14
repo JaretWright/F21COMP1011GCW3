@@ -115,6 +115,6 @@ public class Camera {
     public String toString()
     {
 //        return make + " " + model + " $" + price;
-        return String.format("%s %s $%.2f",make, model, price);
+        return String.format("%d-%s %s $%.2f",cameraId, make, model, price);
     }
 }

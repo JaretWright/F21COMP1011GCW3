@@ -112,6 +112,9 @@ public class DBUtility {
             ps.executeUpdate();
 
             rs = ps.getGeneratedKeys();
+
+            while (rs.next())
+                cameraID = rs.getInt(1);
         }
         catch (Exception e)
         {
